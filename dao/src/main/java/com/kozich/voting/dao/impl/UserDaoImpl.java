@@ -13,4 +13,14 @@ public class UserDaoImpl implements UserDao {
     public void save(UserEntity userEntity) {
         userList.add(userEntity);
     }
+
+    @Override
+    public UserEntity getUserByLogin(String login) {
+        for (UserEntity userEntity : userList) {
+            if(userEntity.getLogin().equals(login)){
+                return userEntity;
+            }
+        }
+        return null;
+    }
 }

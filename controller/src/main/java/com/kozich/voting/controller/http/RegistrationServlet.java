@@ -1,7 +1,7 @@
 package com.kozich.voting.controller.http;
 
-import com.kozich.voting.service.BusinessObj.User;
 import com.kozich.voting.service.api.UserService;
+import com.kozich.voting.service.api.dto.UserDto;
 import com.kozich.voting.service.factory.ServiceFactorySingleton;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -10,8 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.time.LocalDate;
 
 public class RegistrationServlet extends HttpServlet {
 
@@ -26,7 +24,7 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        userService.save(new User()
+        userService.save(new UserDto()
                 .setFirstName("Nikita")
                 .setLastName("Kozich")
                 .setPatronymic("Yurievich")
@@ -47,7 +45,7 @@ public class RegistrationServlet extends HttpServlet {
         String login       = req.getParameter(LOGIN_BIRTH_PARAM_NAME);
         String password    = req.getParameter(PASSWORD_BIRTH_PARAM_NAME);
 
-        User user = new User().setFirstName(firstName)
+        UserDto user = new UserDto().setFirstName(firstName)
                         .setLastName(lastName)
                         .setPatronymic(patronymic)
                         .setDayOfBirth(dayOfBirth)
