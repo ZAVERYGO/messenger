@@ -30,12 +30,15 @@ public class LoginServlet extends HttpServlet {
         UserDto userDto = userService.getUserByLogin(login);
 
         if (userDto == null) {
-            writer.write("<p> Неверный логин или пароль </p> </br>");
+            writer.write("<p> Неверный логин или пароль </p>");
         }
         else if(userDto.getPassword().equals(password)){
             HttpSession session = req.getSession();
             session.setAttribute("user", login);
-            resp.getWriter().write("Ок");
+            resp.getWriter().write("</p> Успешно </p>");
+        }else{
+            writer.write("<p> Неверный логин или пароль </p>");
         }
+
     }
 }
