@@ -32,7 +32,7 @@ public class MessageServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
 
         if(session == null){
-            resp.sendRedirect("http://localhost:8080/messeger-1.0-SNAPSHOT/static/login.html");
+            throw new IllegalArgumentException("Пройдите авторизацию");
         }
 
         String login = (String)session.getAttribute("user");
@@ -58,8 +58,7 @@ public class MessageServlet extends HttpServlet {
         }
 
         if(!userService.isExists(recipient)){
-            writer.write("Не существет пользователя");
-            //throw new IllegalArgumentException("Не существет получатателя");
+            throw new IllegalArgumentException("Не существет получатателя");
         }
 
         String login = (String)session.getAttribute("user");
