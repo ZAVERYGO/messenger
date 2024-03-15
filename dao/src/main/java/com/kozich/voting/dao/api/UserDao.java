@@ -5,5 +5,7 @@ import com.kozich.voting.dao.entity.UserEntity;
 public interface UserDao {
     void save(UserEntity userEntity);
 
-    UserEntity getUserByLogin(String login);
+    UserEntity getByLogin(String login);
+
+    boolean isExists(String login);
 }

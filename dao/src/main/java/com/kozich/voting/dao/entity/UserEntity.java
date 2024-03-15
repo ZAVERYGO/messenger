@@ -1,14 +1,18 @@
 package com.kozich.voting.dao.entity;
 
+import com.kozich.voting.dao.api.UserRole;
+
+import java.time.LocalDate;
+
 public class UserEntity {
     private String firstName;
     private String lastName;
     private String patronymic;
-    private String dayOfBirth;
+    private LocalDate dayOfBirth;
     private String login;
     private String password;
-    private String registrationDate;
-    private String role;
+    private LocalDate registrationDate;
+    private UserRole role;
 
     public UserEntity() {
     }
@@ -40,11 +44,11 @@ public class UserEntity {
         return this;
     }
 
-    public String getDayOfBirth() {
+    public LocalDate getDayOfBirth() {
         return dayOfBirth;
     }
 
-    public UserEntity setDayOfBirth(String dayOfBirth) {
+    public UserEntity setDayOfBirth(LocalDate dayOfBirth) {
         this.dayOfBirth = dayOfBirth;
         return this;
     }
@@ -67,20 +71,20 @@ public class UserEntity {
         return this;
     }
 
-    public String getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
-    public UserEntity setRegistrationDate(String registrationDate) {
+    public UserEntity setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
         return this;
     }
 
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public UserEntity setRole(String role) {
+    public UserEntity setRole(UserRole role) {
         this.role = role;
         return this;
     }

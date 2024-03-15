@@ -5,5 +5,7 @@ import com.kozich.voting.service.api.dto.UserDto;
 public interface UserService {
     void save(UserDto userDto);
 
-    UserDto getUserByLogin(String login);
+    UserDto getByLogin(String login);
+
+    boolean isExists(String login);
 }

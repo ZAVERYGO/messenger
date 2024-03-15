@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class RegistrationServlet extends HttpServlet {
 
@@ -22,21 +23,9 @@ public class RegistrationServlet extends HttpServlet {
 
     private final UserService userService = ServiceFactorySingleton.getUserService();
 
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        userService.save(new UserDto()
-                .setFirstName("Nikita")
-                .setLastName("Kozich")
-                .setPatronymic("Yurievich")
-                .setLogin("ZAVERYGO")
-                .setPassword("12345678")
-                .setRole("admin"));
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html; charset=UTF-8");
 
         String firstName   = req.getParameter(FIRSTNAME_PARAM_NAME);
         String lastName    = req.getParameter(LASTNAME_PARAM_NAME);
@@ -48,10 +37,9 @@ public class RegistrationServlet extends HttpServlet {
         UserDto user = new UserDto().setFirstName(firstName)
                         .setLastName(lastName)
                         .setPatronymic(patronymic)
-                        .setDayOfBirth(dayOfBirth)
+                        .setDayOfBirth(LocalDate.parse(dayOfBirth))
                         .setLogin(login)
-                        .setPassword(password)
-                        .setRole("user");
+                        .setPassword(password);
 
         userService.save(user);
 

@@ -1,15 +1,19 @@
 package com.kozich.voting.service.api.dto;
 
 
+import com.kozich.voting.dao.api.UserRole;
+
+import java.time.LocalDate;
+
 public class UserDto {
     private String firstName;
     private String lastName;
     private String patronymic;
-    private String dayOfBirth;
+    private LocalDate dayOfBirth;
     private String login;
     private String password;
-    private String registrationDate;
-    private String role;
+    private LocalDate registrationDate;
+    private UserRole role;
 
     public UserDto() {
     }
@@ -41,11 +45,11 @@ public class UserDto {
         return this;
     }
 
-    public String getDayOfBirth() {
+    public LocalDate getDayOfBirth() {
         return dayOfBirth;
     }
 
-    public UserDto setDayOfBirth(String dayOfBirth) {
+    public UserDto setDayOfBirth(LocalDate dayOfBirth) {
         this.dayOfBirth = dayOfBirth;
         return this;
     }
@@ -68,20 +72,20 @@ public class UserDto {
         return this;
     }
 
-    public String getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
-    public UserDto setRegistrationDate(String registrationDate) {
+    public UserDto setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
         return this;
     }
 
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public UserDto setRole(String role) {
+    public UserDto setRole(UserRole role) {
         this.role = role;
         return this;
     }

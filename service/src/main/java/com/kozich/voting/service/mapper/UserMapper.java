@@ -1,10 +1,10 @@
-package com.kozich.voting.service.Mapper;
+package com.kozich.voting.service.mapper;
 
 import com.kozich.voting.dao.entity.UserEntity;
 import com.kozich.voting.service.api.dto.UserDto;
 
 public class UserMapper {
-    public static UserEntity userDtoToUserEntity(UserDto userDto){
+    public UserEntity userDtoToUserEntity(UserDto userDto){
         if (userDto == null ) {
             return null;
         }
@@ -23,7 +23,7 @@ public class UserMapper {
         return userEntity;
     }
 
-    public static UserDto userEntityToUserDto(UserEntity userEntity){
+    public UserDto userEntityToUserDto(UserEntity userEntity){
         if (userEntity == null ) {
             return null;
         }

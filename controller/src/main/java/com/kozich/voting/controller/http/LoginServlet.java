@@ -20,14 +20,13 @@ public class LoginServlet extends HttpServlet {
     private final UserService userService = ServiceFactorySingleton.getUserService();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html; charset=UTF-8");
+
         PrintWriter writer = resp.getWriter();
 
         String login = req.getParameter(LOGIN_BIRTH_PARAM_NAME);
         String password = req.getParameter(PASSWORD_BIRTH_PARAM_NAME);
 
-        UserDto userDto = userService.getUserByLogin(login);
+        UserDto userDto = userService.getByLogin(login);
 
         if (userDto == null) {
             writer.write("<p> Неверный логин или пароль </p>");
