@@ -7,4 +7,5 @@ public interface UserDao {
 
     UserEntity getByLogin(String login);
 
+    Long getQuantity();
 }

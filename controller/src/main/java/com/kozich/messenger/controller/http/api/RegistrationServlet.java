@@ -40,6 +40,10 @@ public class RegistrationServlet extends HttpServlet {
                         .setLogin(login)
                         .setPassword(password);
 
+        if(userService.getByLogin(login) != null){
+            throw new IllegalArgumentException("Логин уже занят");
+        }
+
         userService.save(user);
 
         resp.getWriter().write("Успешно");

@@ -9,4 +9,6 @@ public interface MessageDao {
     void save(MessageEntity messageEntity);
 
     List<MessageEntity> getAllByLogin(String login);
+
+    Long getQuantity();
 }

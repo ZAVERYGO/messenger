@@ -30,4 +30,10 @@ public class UserDaoImpl implements UserDao {
         }
         return null;
     }
+
+    @Override
+    public Long getQuantity() {
+        return (long) userList.size();
+    }
+
 }

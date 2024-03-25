@@ -1,5 +1,6 @@
 package com.kozich.messenger.controller.http.api;
 
+import com.kozich.messenger.controller.utils.SessionUtils;
 import com.kozich.messenger.service.api.UserService;
 import com.kozich.messenger.service.api.dto.UserDto;
 import com.kozich.messenger.service.factory.ServiceFactorySingleton;
@@ -33,9 +34,8 @@ public class LoginServlet extends HttpServlet {
         }
         else {
             HttpSession session = req.getSession();
-            session.setAttribute("user", login);
+            SessionUtils.saveUser(session, userDto);
             writer.write("</p> Успешно </p>");
-
         }
 
     }

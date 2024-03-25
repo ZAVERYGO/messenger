@@ -1,5 +1,6 @@
 package com.kozich.messenger.controller.http.api;
 
+import com.kozich.messenger.controller.utils.SessionUtils;
 import com.kozich.messenger.service.api.MessageService;
 import com.kozich.messenger.service.api.UserService;
 import com.kozich.messenger.service.api.dto.MessageDto;
@@ -56,7 +57,7 @@ public class MessageServlet extends HttpServlet {
             throw new IllegalArgumentException("Не существует получатателя");
         }
 
-        String login = (String)session.getAttribute("user");
+        String login = SessionUtils.loadUser(session);
 
         MessageDto messageDto = new MessageDto()
                                 .setRecipient(recipient)
@@ -65,7 +66,7 @@ public class MessageServlet extends HttpServlet {
 
         messageService.save(messageDto);
 
-        writer.write("Сообщение сохранено");
+        writer.write("Сообщение отправлено");
         resp.setStatus(HttpServletResponse.SC_CREATED);
     }
 }

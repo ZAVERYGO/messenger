@@ -24,4 +24,9 @@ public class MessageDaoImpl implements MessageDao {
         }
         return list;
     }
+
+    @Override
+    public Long getQuantity() {
+        return (long) messageList.size();
+    }
 }
