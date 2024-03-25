@@ -14,7 +14,7 @@
         <th>Общее количесто сообщений</th>
     </tr>
     <tr>
-        <td>${allStat.activeUser.quantity}</td>
+        <td>${allStat.activeUser}</td>
         <td>${allStat.allUser}</td>
         <td>${allStat.allMessage}</td>
     </tr>
